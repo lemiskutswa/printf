@@ -1,34 +1,33 @@
-#ifndef _HOLBERTON_
-#define _HOLBERTON_
+#ifndef HOLBERTON_H
+#define HOLBERTON_H
 
-#include <unistd.h>
 #include <stdarg.h>
-#include <stdio.h>
-#include <limits.h>
+
+int _putchar(char c);
+int print_int(va_list arg);
+int print_unsigned(va_list arg);
+int _printf(const char *format, ...);
+int print_char(va_list arg);
+int print_str(va_list arg);
+int print_percent(void);
+void print_binary(unsigned int n, unsigned int* printed);
+int print_unsignedToBinary(va_list arg);
+int print_oct(va_list arg);
+int print_unsignedIntToHex(unsigned int num, char _case);
+int print_hex_base(va_list arg, char _case);
+int print_hex(va_list arg);
+int print_HEX(va_list arg);
+int print_STR (va_list arg);
 
 /**
-* struct op - flag / function object
-* @c: flag
-* @f: function
-*/
-
-typedef struct op
+ * struct identifierStruct - structure definition of a printTypeStruct
+ * @indentifier: type
+ * @printer: function to print
+ */
+typedef struct identifierStruct
 {
-	char *c;
-	int (*f)(va_list);
-} op_t;
-
-int _printf(const char *format, ...);
-int _putchar(char c);
-int print_c(va_list ar_list);
-int (*get_func(char s))(va_list ar_list);
-int print_s(va_list ar_list);
-int print_d(va_list ar_list);
-int print_i(va_list ar_numlist);
-int print_b(va_list binary_list);
-int print_u(va_list ar_list);
-int print_o(va_list ar_list);
-int print_x(va_list ar_list);
-int print_X(va_list ar_list);
+char *indentifier;
+int (*printer)(va_list);
+} identifierStruct;
 
 #endif
